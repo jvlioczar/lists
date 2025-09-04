@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Top 100 BR Instagram — Tabela ao vivo</title>
+  <meta name="description" content="Tabela atualizada (via Google Sheets) com os 100 brasileiros mais seguidos no Instagram. Ordene e filtre.">
+  <link rel="preconnect" href="https://cdn.datatables.net">
+  <link rel="preconnect" href="https://code.jquery.com">
+  <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-2.0.3/datatables.min.css"/>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Top 100 brasileiros mais seguidos no Instagram</h1>
+    <p class="sub">Fonte atualizada diariamente via Google Sheets + Apps Script.</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="config-hint">
+        <strong>Configuração sem código:</strong> publique sua planilha como CSV e chame esta página com <code>?csv=URL_DO_CSV</code>.<br>
+        Exemplo: <code>?csv=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2F...%2Foutput%3Dcsv</code>
+      </div>
+      <div class="meta"><span id="lastUpdated"></span></div>
+      <div class="table-wrap">
+        <table id="igTable" class="display">
+          <thead>
+            <tr>
+              <th>Posição</th>
+              <th>Nome</th>
+              <th>Usuário (@)</th>
+              <th>Seguidores</th>
+              <th>Última verificação</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Hospede em <strong>GitHub Pages</strong> ou <strong>Netlify</strong> e incorpore via iframe no WordPress.com (grátis).</p>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const h = document.body.scrollHeight;
+        try { parent.postMessage({ type: 'resize-iframe', height: h }, '*'); } catch(e){}
+      }, 500);
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/v/dt/dt-2.0.3/datatables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
